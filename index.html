@@ -8,7 +8,7 @@
     <link type="text/css" href="assets/css/style.css">
     <link type="text/css" href="assets/css/reset.css">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <title>Crystal Collector</title>
 
 </head>
@@ -27,21 +27,26 @@
         <p> Each time when the game starts, the game will change the values of each crystal.</p>
     </div>
     <div class="numToGuess">
-<p id="randomnum"></p>
+<span id="randomnum"></span>
     </div>
     <div class="winsLoss">
-        <p>Wins:</p>
-        <p>Losses:</p>
+        <p>Wins:</p> <span id="numwins"></span>
+        <p>Losses:</p><span id="numloss"></span>
     </div>
-    <div class="crystalValue">
-        
+    <div class="crystalValueSection">
+        <p>Your current total:</p>
+        <span id=#finalTotal></span>
+
+        </div>
     </div>
     <div class="buttonGroup">
 <img id="em"src="assets/images/emerald.jpg">
-<img src="assets/images/ruby.jpg">
-<img src="assets/images/topaz.png" height="230px" width="220px">
-<img src="assets/images/yellowCrystal.jpg"height="230px"width="270px">
+<img id="ruby" src="assets/images/ruby.jpg">
+<img id="topaz"src="assets/images/topaz.png" height="230px" width="220px">
+<img id="yellow"src="assets/images/yellowCrystal.jpg"height="230px"width="270px">
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/game.js"></script>
 </body>
 
