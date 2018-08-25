@@ -3,8 +3,7 @@
 let guessesRemaining = 15;
 let userChoice = [];
 let newTotal = [];
-let rubyTotal = [];
-let topazTotal = [];
+
 let finalTotal = [];
 
 $(document).ready(function() {
@@ -13,6 +12,7 @@ $(document).ready(function() {
 
   //displays random number to the screen for user
   $("#randomnum").text(randomNumber);
+ 
 
   let rand1 = Math.floor(Math.random() * 11 +1);
   let rand2 = Math.floor(Math.random() * 11+1);
@@ -21,67 +21,97 @@ $(document).ready(function() {
 
   let wins = 0;
   let losses = 0;
-  let ties = 0;
-  let userTotal = [];
+ 
+  let userTotal = 0;
   console.log("number to guess" + randomNumber);
+  $("#numwins").text(wins);
+  $("#numloss").text(losses);
+
 
   //Register for user clicks on crystals
 
   $("#em").click(function() {
-    userTotal = (userChoice + rand1);
+    userTotal += rand1;
     console.log("New userTotal= " + userTotal);
-    $("#finalTotal").text(userChoice);
+    $("#finalTotal").text(userTotal);
     //sets win/lose conditions
     if (userTotal == randomNumber) {
         win()
       } else if (userTotal > randomNumber) {
         loss()
+        reset()
       }
   });
 
 $('#ruby').click(function(){
-    userTotal = (userChoice + rand2);
+    userTotal += rand2;
     console.log("New userTotal= " + userTotal);
-    $('#finalTotal').text(userChoice); 
+   
+
+    $('#finalTotal').text(userTotal); 
     if (userTotal == randomNumber) {
         win()
+        reset()
       } else if (userTotal > randomNumber) {
         loss()
+        reset()
       }
   });  
 $("#topaz").click(function() {
     
-        userTotal = (userChoice + rand3);
+        userTotal += rand3;
+        
         console.log("New userTotal= " + userTotal);
         $("#finalTotal").text(userTotal);
         
         if (userTotal == randomNumber) {
           win()
+          reset()
         } else if (userTotal > randomNumber) {
           loss()
+          reset()
         }
       });
       $("#yellow").click(function() {
     
-        userTotal = (userChoice + rand4);
+        userTotal += rand4;
+        
         console.log("New userTotal= " + userTotal);
-        $("#finalTotal").text(userChoice);
+        $("#finalTotal").text(userTotal);
         
         if (userTotal == randomNumber) {
           win()
+          reset()
         } else if (userTotal > randomNumber) {
-          loss()
+          loss();
+          reset();
         }
       });
 
 function loss() {
-    if (userTotal > randomNumber)
+    
     alert("You lost");
-    losses++
-}
+    losses++;
+    $("#numloss").text(losses);
+};
 function win() {
-    if (userTotal===randomNumber)
+    
     alert("You won!");
     wins++;
+    $("#numwins").text(wins);
 };
+function reset() {
+    
+    randomNumber = Math.floor(Math.random() * 101 + 19);
+    $("#randomnum").text(randomNumber);
+    userTotal=0;
+    $("#finalTotal").text(userTotal);
+
+     rand1 = Math.floor(Math.random() * 11 +1);
+     rand2 = Math.floor(Math.random() * 11+1);
+     rand3 = Math.floor(Math.random() * 11+1);
+     rand4 = Math.floor(Math.random() * 11+1);
+    
+};
+
 });
