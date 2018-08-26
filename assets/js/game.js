@@ -7,6 +7,9 @@ let newTotal = [];
 let finalTotal = [];
 
 $(document).ready(function() {
+
+
+    
   //Generates random number for user to guess
   let randomNumber = Math.floor(Math.random() * 101 + 19);
 

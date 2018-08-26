@@ -1,3 +1,9 @@
-h1 {
+body {
     background:orange;
 };
+.game {
+    border: 1px;
+};
+.buttonGroup {
+    justify-content: center;
+}
